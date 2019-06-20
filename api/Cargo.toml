@@ -4,3 +4,7 @@ version = "0.1.0"
 authors = ["Hossein Boustani <eng.boustani@gmail.com>"]
 edition = '2018'
 documentation = "https://github.com/engboustani/rocket-vue/api"
+
+[dependencies]
+rocket = "0.4.1"
+diesel = { version = "1.4.0", features = ["postgres"] }
