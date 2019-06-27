@@ -3,5 +3,6 @@ A docker image including Rust + Diesel + Rocket (for Backend) and Nodejs + Vuejs
 
 ## Deployment
 For development purposes you just need do this
-```sudo docker-compose up -d
+```
+sudo docker-compose up -d
 ```
