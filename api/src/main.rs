@@ -16,7 +16,7 @@ use rocket::request::Request;
 use rocket_contrib::databases::diesel::PgConnection;
 
 #[get("/")]
-fn index(_db_conn: RustyDbConn) -> &'static str {
+fn index(_db_conn: RocketDbConn) -> &'static str {
     // Rocket uses the RustyDbConn request guard to provide us with a database
     // connection from a managed pool.
     "Hello, from Rust! (with a database connection!)"
@@ -27,12 +27,12 @@ fn service_not_available(_req: &Request) -> &'static str {
     "Service is not available. (Is the database up?)"
 }
 
-#[database("rustydb")]
-pub struct RustyDbConn(PgConnection);
+#[database("rocketdb")]
+pub struct RocketDbConn(PgConnection);
 
 fn main() {
     rocket::ignite()
-        .attach(RustyDbConn::fairing())
+        .attach(RocketDbConn::fairing())
         .register(catchers![service_not_available])
         .mount("/api", routes![index])
         .launch();

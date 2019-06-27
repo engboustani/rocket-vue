@@ -8,3 +8,10 @@ documentation = "https://github.com/engboustani/rocket-vue/api"
 [dependencies]
 rocket = "0.4.1"
 diesel = { version = "1.4.0", features = ["postgres"] }
+serde = "1.0"
+serde_derive = "1.0"
+
+[dependencies.rocket_contrib]
+version = "*"
+default-features = false
+features = ["json", "diesel_postgres_pool"]
